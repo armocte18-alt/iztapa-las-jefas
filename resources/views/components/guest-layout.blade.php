@@ -36,22 +36,32 @@
         input, select, textarea { background-color: var(--bg-card); color: var(--text-primary); border-color: var(--border-card); }
         .dark input, .dark select, .dark textarea { color-scheme: dark; }
 
-        /* El membrete institucional es muy ancho y corto (1198x81) —
-           por eso va como imagen normal arriba del título, no como fondo
-           de pantalla completa (con "cover" se veía gigante y cortado). */
+        /* Marca de agua institucional de fondo — muy tenue, para que el
+           formulario siga siendo perfectamente legible encima. */
+        .marca-agua {
+            position: fixed;
+            inset: 0;
+            background-image: url('{{ asset('logo.png') }}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.06;
+            filter: grayscale(30%);
+            pointer-events: none;
+        }
+        .dark .marca-agua { opacity: 0.10; }
     </style>
 </head>
 <body class="h-full bg-[var(--bg-page)] text-[var(--text-primary)] antialiased">
-    <div class="relative min-h-full flex flex-col items-center justify-center p-6 sm:p-12 gap-8">
-        <div class="w-[80%] max-w-2xl mx-auto text-center">
-            <img src="{{ asset('logo_institucional.png') }}" alt="Iztapa'Las Jefas"
-                 class="mx-auto mb-6 w-full">
-            <h1 class="font-bold text-xl text-[var(--text-primary)]">Sistema Acuses</h1>
-            <p class="text-sm text-[var(--text-muted)] mt-1">Iztapa'Las Jefas 2026 · Iztapalapa</p>
-        </div>
+    <div class="marca-agua"></div>
 
+    <div class="relative min-h-full flex items-center justify-center p-6 sm:p-12">
         <div class="w-full max-w-md">
-            <div class="rounded-2xl bg-[var(--bg-card)]/90 backdrop-blur-md border border-[var(--border-card)] shadow-[0_4px_24px_rgba(16,24,40,0.08)] p-8">
+            <div class="mb-8 text-center">
+                <h1 class="font-bold text-xl text-[var(--text-primary)]">Sistema Acuses</h1>
+                <p class="text-sm text-[var(--text-muted)] mt-1">Iztapa'Las Jefas 2026 · Iztapalapa</p>
+            </div>
+
+            <div class="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] shadow-[0_4px_24px_rgba(16,24,40,0.08)] p-8">
                 {{ $slot }}
             </div>
         </div>

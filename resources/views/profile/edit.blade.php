@@ -1,29 +1,20 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+<x-layouts.app titulo="Mi cuenta">
+    <div class="max-w-2xl mx-auto space-y-6">
+        <div>
+            <h1 class="text-xl font-bold text-[var(--text-primary)]">Mi cuenta</h1>
+            <p class="text-sm text-[var(--text-muted)] mt-1">Actualiza tu información y tu contraseña.</p>
+        </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+        <div class="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] shadow-[0_1px_2px_rgba(16,24,40,0.05)] p-6">
+            @include('profile.partials.update-profile-information-form')
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+        <div class="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] shadow-[0_1px_2px_rgba(16,24,40,0.05)] p-6">
+            @include('profile.partials.update-password-form')
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+        <div class="rounded-2xl bg-[var(--bg-card)] border border-[#E4572E]/20 shadow-[0_1px_2px_rgba(16,24,40,0.05)] p-6">
+            @include('profile.partials.delete-user-form')
         </div>
     </div>
-</x-app-layout>
+</x-layouts.app>

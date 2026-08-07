@@ -97,6 +97,9 @@
                         <span class="text-white/60 text-sm">{{ auth()->user()->name }}
                             <span class="text-white/40">· {{ auth()->user()->rol }}</span>
                         </span>
+                        <a href="{{ route('profile.edit') }}" class="text-sm text-white/60 hover:text-white transition">
+                            Mi cuenta
+                        </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button class="rounded-md bg-white/10 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/15 transition">
@@ -119,6 +122,7 @@
                         <span x-text="oscuro ? '☀ Modo claro' : '🌙 Modo oscuro'"></span>
                     </button>
                     <span class="text-white/60 text-sm">{{ auth()->user()->name }} ({{ auth()->user()->rol }})</span>
+                    <a href="{{ route('profile.edit') }}" class="text-sm text-white/60 hover:text-white">Mi cuenta</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button class="text-sm text-white/60 hover:text-white">Cerrar sesión</button>
